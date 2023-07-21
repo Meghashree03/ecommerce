@@ -35,26 +35,43 @@
                 <i class="bx bx-shopping-bag"></i>
                 
                 <button type="button" onclick="addToCart('Backpack', 'bagpack.jpeg', 5000)">Add</button>
+
+            <i class="bx bx-shopping-bag"></i>
+            <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="5000">Add to Cart</button>
             </div>
             <div class="column">
                 <img src="../images/pant.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Women Cargo pants</h3>
                 <span>$ 1000</span>
                 <i class="bx bx-shopping-bag"></i>
+
                 <button type="button" onclick="addToCart('Women Cargo Pants', 'pant.jpeg', 1000)">Add</button>
+                <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="1000">Add to Cart</button>
+
             </div>
             <div class="column">
                 <img src="../images/frock.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Frock for girls</h3>
                 <span>$ 1200</span>
                 <i class="bx bx-shopping-bag"></i>
+
                 <button type="button" onclick="addToCart('Frock for girls', 'frock.jpeg', 1200)">Add</button>
+
+                <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="1200">Add to Cart</button>
+
             </div>
             <div class="column">
                 <img src="../images/hoodie.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Women Hoodies</h3>
                 <span>$ 700</span>
                 <i class="bx bx-shopping-bag"></i>
+
                 <button type="button" onclick="addToCart('Women Hodiees', 'hoodie.jpeg', 700)">Add</button>
             </div>
             <div class="column">
@@ -63,12 +80,29 @@
                 <span>$ 5000</span>
                 <i class="bx bx-shopping-bag"></i>
                 <button type="button" onclick="addToCart('Kids Wear', 'kids.jpeg', 5000)">Add</button>
+                <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="700">Add to Cart</button>
+
+
+
+            </div>
+            <div class="column">
+                <img src="../Images/watch.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <h3>watch</h3>
+                <span>rupee 5200</span>
+                <i class="bx bx-shopping-bag"></i>
+                <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="5200">Add to Cart</button>
+
             </div>
             <div class="column">
                 <img src="../images/jacket.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Jacket for Men</h3>
                 <span>$ 600</span>
                 <i class="bx bx-shopping-bag"></i>
+
                 <button type="button" onclick="addToCart('Jacket for men', 'jacket.jpeg', 600)">Add</button>
             </div>
             <div class="column">
@@ -78,21 +112,108 @@
                 <i class="bx bx-shopping-bag"></i>
                 <button type="button" onclick="addToCart('Mens watch', 'watch.jpeg', 2000)">Add</button>
                 
+
+                <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="600">Add to Cart</button>
             </div>
             <div class="column">
-                <img src="../Images/shoes.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <img src="../images/kids.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <h3>Kids Partywear boys</h3>
+                <span>rupee 2000</span>
+                <i class="bx bx-shopping-bag"></i>
+                <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="2000">Add to Cart</button>
+
+            </div>
+            <div class="column">
+                <img src="../images/shoes.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Running Shoes</h3>
                 <span>$ 900</span>
                 <i class="bx bx-shopping-bag"></i>
                 <button type="button" onclick="addToCart('Running shoes', 'shoes.jpeg', 900)">Add</button>
+
+                <input type="number" class="quantity-input" value="">
+                <span class="remove-button">Remove</span>
+                <button class="add-to-cart" data-price="900">Add to Cart</button>
             </div>
         </div>
-    
     </section>
     <script src="../JS/bootstrap.bundle.min.js"></script>
     <script src="../JS/Script.js">
         
     </script>
 
+    <a href="#" class="checkout-button">Checkout</a>
+    <script>
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartItemsContainer = document.createElement('div');
+        const totalPriceContainer = document.createElement('div');
+        const totalPriceHeading = document.createElement('h2');
+        let totalPrice = 0;
 
-    
+        addToCartButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const itemContainer = button.parentElement;
+            const itemName = itemContainer.querySelector('h3').textContent;
+            const itemPrice = parseInt(button.dataset.price);
+
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+              <h3>${itemName}</h3>
+              <h4>₹ ${itemPrice}</h4>
+            `;
+
+            cartItemsContainer.appendChild(cartItem);
+
+            totalPrice += itemPrice;
+            totalPriceHeading.textContent = `Total: ₹ ${totalPrice}`;
+
+            button.disabled = true;
+            button.textContent = 'Added to Cart';
+          });
+        });
+
+        document.body.appendChild(cartItemsContainer);
+        document.body.appendChild(totalPriceContainer);
+        totalPriceContainer.appendChild(totalPriceHeading);
+      </script>
+
+      <script>
+
+        const removeButtons = document.querySelectorAll('.remove-button');
+
+        removeButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const itemContainer = button.parentElement;
+            itemContainer.remove();
+          });
+        });
+
+
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+
+        quantityInputs.forEach((input) => {
+          input.addEventListener('change', () => {
+            const itemContainer = input.parentElement;
+            const itemPriceElement = itemContainer.querySelector('h4');
+            const itemPrice = parseInt(itemPriceElement.textContent.replace('₹ ', ''));
+            const quantity = parseInt(input.value);
+
+            const totalPriceElement = document.querySelector('.total-price h2');
+            let totalPrice = parseInt(totalPriceElement.textContent.replace('Total: ₹ ', ''));
+
+            const itemTotalPrice = itemPrice * quantity;
+            totalPrice -= itemPrice * (quantity - 1);
+            totalPrice += itemTotalPrice;
+
+            itemPriceElement.textContent = `₹ ${itemTotalPrice}`;
+            totalPriceElement.textContent = `Total: ₹ ${totalPrice}`;
+          });
+        });
+      </script>
+</body>
+</html>
+
