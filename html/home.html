@@ -4,100 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <!--Link to CSS-->
-    <link href="../CSS/cart.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        * {
-          box-sizing: border-box;
-        }
-        
-        .column {
-          float: left;
-          width: 25%;
-          padding: 5px;
-        }
-        
-        /* Clearfix (clear floats) */
-        .row::after {
-          content: "";
-          clear: both;
-          display: table;
-        }
-        img {
-  border: 2px solid #555;
-        } -->
-        <!-- </style>
-</head>
-<body>
-   
+ </head>
+<body> 
     <!--Header-->
-    <header>
+     <header>
         <nav>
-            <a href="">Shopping Cart</a>
+            <a href="" >Shopping Cart</a>
+            <h2>Welcome! Shop Now</h2>
+            <a href="./cart.html">
+            <i class="bx bx-shopping-bag"></i>
+          </a>
         </nav>
-        <i class="bx bx-shopping-bag"></i>
-    </header>
-   
+        
+    </header> 
     <!--Shopping Section-->
-    <section>
+     <section>
         <div>
-            <h2>Shopping products</h2>
+            <h2 id="shop-product"></h2> 
             <!--Content-->
         </div>
         <div class="row">
             <div class="column">
-                <img src="../Images/bagpack.jpeg" alt="Image Not Found" height="250px" width="250px"/>
-            <h3>Backpack</h3>
-            <span> 5000</span>
-            <i class="bx bx-shopping-bag"></i>
-            
+                <img src="../images/bagpack.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <h3>Backpack</h3>
+                <span>$ 5000</span>
+                <i class="bx bx-shopping-bag"></i>
+                
+                <button type="button" onclick="addToCart('Backpack', 'bagpack.jpeg', 5000)">Add</button>
             </div>
             <div class="column">
-                <img src="../Images/pant.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <img src="../images/pant.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Women Cargo pants</h3>
-                <span>rupee 1000</span>
+                <span>$ 1000</span>
                 <i class="bx bx-shopping-bag"></i>
+                <button type="button" onclick="addToCart('Women Cargo Pants', 'pant.jpeg', 1000)">Add</button>
             </div>
             <div class="column">
-                <img src="../Images/frock.jpeg" alt="Image Not Found" height="250px" width="250px"/>
-                <h3>frock for girls</h3>
-                <span>rupee 1200</span>
+                <img src="../images/frock.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <h3>Frock for girls</h3>
+                <span>$ 1200</span>
                 <i class="bx bx-shopping-bag"></i>
+                <button type="button" onclick="addToCart('Frock for girls', 'frock.jpeg', 1200)">Add</button>
             </div>
             <div class="column">
-                <img src="../Images/hoodie.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <img src="../images/hoodie.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Women Hoodies</h3>
-                <span>rupee 700</span>
+                <span>$ 700</span>
                 <i class="bx bx-shopping-bag"></i>
+                <button type="button" onclick="addToCart('Women Hodiees', 'hoodie.jpeg', 700)">Add</button>
             </div>
             <div class="column">
-                <img src="../Images/watch.jpeg" alt="Image Not Found" height="250px" width="250px"/>
-                <h3>watch</h3>
-                <span>rupee 52,000</span>
+                <img src="../images/kids.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <h3>Kids Indian Wear</h3>
+                <span>$ 5000</span>
                 <i class="bx bx-shopping-bag"></i>
+                <button type="button" onclick="addToCart('Kids Wear', 'kids.jpeg', 5000)">Add</button>
             </div>
             <div class="column">
-                <img src="../Images/jacket.jpeg" alt="Image Not Found" height="250px" width="250px"/>
-                <h3>Denim jacket for Men</h3>
-                <span>rupee 600</span>
+                <img src="../images/jacket.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <h3>Jacket for Men</h3>
+                <span>$ 600</span>
                 <i class="bx bx-shopping-bag"></i>
+                <button type="button" onclick="addToCart('Jacket for men', 'jacket.jpeg', 600)">Add</button>
             </div>
             <div class="column">
-                <img src="../Images/kids.jpeg" alt="Image Not Found" height="250px" width="250px"/>
-                <h3>Kids Partywear boys</h3>
-                <span>rupee 2000</span>
+                <img src="../images/watch.jpeg" alt="Image Not Found" height="250px" width="250px"/>
+                <h3>Watch</h3>
+                <span>$ 2000</span>
                 <i class="bx bx-shopping-bag"></i>
+                <button type="button" onclick="addToCart('Mens watch', 'watch.jpeg', 2000)">Add</button>
+                
             </div>
             <div class="column">
                 <img src="../Images/shoes.jpeg" alt="Image Not Found" height="250px" width="250px"/>
                 <h3>Running Shoes</h3>
-                <span>rupee 900</span>
+                <span>$ 900</span>
                 <i class="bx bx-shopping-bag"></i>
+                <button type="button" onclick="addToCart('Running shoes', 'shoes.jpeg', 900)">Add</button>
             </div>
         </div>
     
     </section>
-</body>
-</html>
+    <script src="../JS/bootstrap.bundle.min.js"></script>
+    <script src="../JS/Script.js">
+        
+    </script>
+
+
+    
